@@ -161,7 +161,7 @@ public class Register extends JFrame {
              text2.setText("");
              
              setVisible(false);
-             new Login().frame.setVisible(true);
+             //new Login().frame.setVisible(true);
            
 			}
 			

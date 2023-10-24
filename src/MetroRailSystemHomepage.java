@@ -71,12 +71,18 @@ public class MetroRailSystemHomepage extends JFrame {
                             this.getContentPane().setBackground(new Color(51, 153, 255)); // Set background color
                             
                             JButton btnNewButton = new JButton("Daily Ticket");
+                            btnNewButton.addActionListener(new ActionListener() {
+                            	public void actionPerformed(ActionEvent e) {
+                            		new Single();
+                            	}
+                            	
+                            });
                             btnNewButton.setBounds(31, 132, 322, 28);
                             getContentPane().add(btnNewButton);
                             
                             JLabel lblNewLabel1 = new JLabel("");
                         	lblNewLabel1.setHorizontalAlignment(SwingConstants.LEFT);
-                        	lblNewLabel1.setIcon(new ImageIcon("D:\\Metro\\r1.png"));
+                        	lblNewLabel1.setIcon(new ImageIcon("D:\\CSE215-Project\\CSE215L-projects-Metro-Rail-management-system\\r1.png"));
                         	lblNewLabel1.setBounds(47, 321, 641, 274);
                         	lblNewLabel1.setFont(new Font("Tahoma", Font.ITALIC, 15));
                         	getContentPane().add(lblNewLabel1);

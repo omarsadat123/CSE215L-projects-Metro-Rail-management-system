@@ -31,6 +31,8 @@ public class Single {
         departureLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         departureLabel.setBounds(110, 328, 93, 43);
         departureStationComboBox = new JComboBox<>(stations);
+        departureStationComboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
+        departureStationComboBox.setForeground(Color.BLUE);
         departureStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
         departureStationComboBox.setBounds(300, 331, 203, 42);
 
@@ -39,6 +41,8 @@ public class Single {
         destinationLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         destinationLabel.setBounds(110, 390, 93, 43);
         destinationStationComboBox = new JComboBox<>(stations);
+        destinationStationComboBox.setForeground(Color.BLUE);
+        destinationStationComboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
         destinationStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
         destinationStationComboBox.setBounds(300, 388, 203, 42);
         
@@ -69,7 +73,7 @@ public class Single {
 
         resultLabel = new JLabel("Ticket Price is 0.0 TK");
         resultLabel.setVerticalAlignment(SwingConstants.TOP);
-        resultLabel.setFont(new Font("Tahoma", Font.ITALIC, 18));
+        resultLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         resultLabel.setHorizontalAlignment(SwingConstants.LEFT);
         resultLabel.setBounds(561, 387, 434, 43);
         frame.getContentPane().setLayout(null);
@@ -91,10 +95,14 @@ public class Single {
         frame.getContentPane().add(resultLabel);
         
         JDateChooser dateChooser = new JDateChooser();
+        dateChooser.setToolTipText("mm-dd-yy");
         dateChooser.setBounds(300, 445, 203, 41);
         frame.getContentPane().add(dateChooser);
         
         JComboBox comboBox = new JComboBox();
+        comboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
+        comboBox.setForeground(Color.BLUE);
+        comboBox.setModel(new DefaultComboBoxModel(new String[] {"Time Select", "1-1.30", "1.30-2.30", "2.30-3.00", "3-3.30"}));
         comboBox.setBounds(300, 502, 203, 42);
         frame.getContentPane().add(comboBox);
         
@@ -169,7 +177,7 @@ public class Single {
             double roundTripPrice = isRoundTrip ? oneWayPrice * 2 : oneWayPrice;
 
             resultLabel.setText("Ticket price is: " + oneWayPrice + " TK" +
-                    (isRoundTrip ? "\n (Round Trip Price: " + roundTripPrice + " TK)" : ""));
+                    (isRoundTrip ? "(Round Trip Price: " + roundTripPrice + " TK)" : ""));
         }
     }
 
