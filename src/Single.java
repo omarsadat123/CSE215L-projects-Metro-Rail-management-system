@@ -12,7 +12,7 @@ public class Single {
     private JComboBox<String> destinationStationComboBox;
     private JCheckBox returnCheckBox;
     private JLabel resultLabel;
-
+    private JComboBox comboBox;
     private String[] stations = {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."};
     private double[][] prices = {{0.0, 5.0, 10.0,15,20,25,30,35,40}, {5.0, 0.0, 10.0,15,20,25,30,35,40}, {5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40}
                                 ,{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40}};
@@ -75,7 +75,7 @@ public class Single {
         resultLabel.setVerticalAlignment(SwingConstants.TOP);
         resultLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         resultLabel.setHorizontalAlignment(SwingConstants.LEFT);
-        resultLabel.setBounds(561, 387, 434, 43);
+        resultLabel.setBounds(561, 387, 470, 30);
         frame.getContentPane().setLayout(null);
 
         frame.getContentPane().add(departureLabel);
@@ -90,16 +90,16 @@ public class Single {
         JLabel lblFxdghfhfv = new JLabel();
         lblFxdghfhfv.setFont(new Font("Tahoma", Font.BOLD, 20));
         lblFxdghfhfv.setText("Price");
-        lblFxdghfhfv.setBounds(639, 303, 77, 57);
+        lblFxdghfhfv.setBounds(561, 303, 69, 57);
         frame.getContentPane().add(lblFxdghfhfv); // Empty cell
         frame.getContentPane().add(resultLabel);
         
-        JDateChooser dateChooser = new JDateChooser();
+        JDateChooser dateChooser = new JDateChooser();     
         dateChooser.setToolTipText("mm-dd-yy");
         dateChooser.setBounds(300, 445, 203, 41);
         frame.getContentPane().add(dateChooser);
         
-        JComboBox comboBox = new JComboBox();
+         comboBox = new JComboBox();
         comboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
         comboBox.setForeground(Color.BLUE);
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Time Select", "1-1.30", "1.30-2.30", "2.30-3.00", "3-3.30"}));
@@ -123,6 +123,10 @@ public class Single {
         chckbxNewCheckBox.setBounds(58, 95, 87, 23);
         frame.getContentPane().add(chckbxNewCheckBox);
         
+        ButtonGroup group1=new ButtonGroup();
+		group1.add( chckbxNewCheckBox);
+		group1.add(returnCheckBox);
+        
         JLabel lblNewLabel_1 = new JLabel("GENDER");
         lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
         lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -140,6 +144,10 @@ public class Single {
         rdbtnNewRadioButton_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
         rdbtnNewRadioButton_1.setBounds(202, 134, 109, 23);
         frame.getContentPane().add(rdbtnNewRadioButton_1);
+        
+        ButtonGroup group=new ButtonGroup();
+		group.add( rdbtnNewRadioButton);
+		group.add(rdbtnNewRadioButton_1);
         
         JLabel lblNewLabel_2 = new JLabel("Number Of Tickets");
         lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -166,6 +174,12 @@ public class Single {
     private class CalculateButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+        	int selectedIndex = comboBox.getSelectedIndex();
+        	if (selectedIndex == -1) {
+        	    // Display an error message or take appropriate action
+        	    JOptionPane.showMessageDialog(null, "Please make a selection in the ComboBox.");
+        	}
+        	
             String departureStation = (String) departureStationComboBox.getSelectedItem();
             String destinationStation = (String) destinationStationComboBox.getSelectedItem();
             boolean isRoundTrip = returnCheckBox.isSelected();

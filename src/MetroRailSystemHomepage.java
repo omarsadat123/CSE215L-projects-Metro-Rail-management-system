@@ -15,8 +15,8 @@ public class MetroRailSystemHomepage extends JFrame {
 
         // Create buttons
         JButton viewScheduleButton = new JButton("View Schedule");
-        viewScheduleButton.setBounds(382, 132, 322, 28);
-        JButton bookTicketButton = new JButton("Book Ticket");
+        viewScheduleButton.setBounds(31, 188, 322, 28);
+        JButton bookTicketButton = new JButton("Emergency Help");
         bookTicketButton.setBounds(382, 188, 322, 28);
 
         // Set button colors
@@ -36,10 +36,19 @@ public class MetroRailSystemHomepage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Add code to open the ticket booking page
+            	
                 JOptionPane.showMessageDialog(null, "Book Ticket button clicked.");
             }
         });
        getContentPane().setLayout(null);
+        
+        JButton btnNewButton = new JButton("Daily Ticket");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new Single();
+        	}
+        	
+        });
         
         JLabel lblNewLabel = new JLabel("Welcome to Metro Rail Management System");
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -47,38 +56,31 @@ public class MetroRailSystemHomepage extends JFrame {
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel.setBounds(171, 61, 438, 35);
         getContentPane().add(lblNewLabel);
+        btnNewButton.setBounds(31, 132, 322, 28);
+        getContentPane().add(btnNewButton);
 
      
        
         getContentPane().add(viewScheduleButton);
+       
+         JButton checkBalanceButton = new JButton("Permanent Card");
+         checkBalanceButton.setBounds(382, 132, 322, 28);
+         checkBalanceButton.setBackground(new Color(255, 255, 102)); // Yellow
+         
+                 checkBalanceButton.addActionListener(new ActionListener() {
+                     @Override
+                     public void actionPerformed(ActionEvent e) {
+                         // Add code to check balance
+                   
+                         new Login();
+                         // new Ticket_Manage();
+                     }
+                 });
+                 getContentPane().add(checkBalanceButton);
        getContentPane().add(bookTicketButton);
-                  
-                    JButton checkBalanceButton = new JButton("Permanent Card");
-                    checkBalanceButton.setBounds(31, 188, 322, 28);
-                    checkBalanceButton.setBackground(new Color(255, 255, 102)); // Yellow
-                    
-                            checkBalanceButton.addActionListener(new ActionListener() {
-                                @Override
-                                public void actionPerformed(ActionEvent e) {
-                                    // Add code to check balance
-                                	new Ticket_Manage();
-                                    JOptionPane.showMessageDialog(null, "Check Balance button clicked.");
-                                }
-                            });
-                            getContentPane().add(checkBalanceButton);
                             this.setSize(804,645);
                             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                             this.getContentPane().setBackground(new Color(51, 153, 255)); // Set background color
-                            
-                            JButton btnNewButton = new JButton("Daily Ticket");
-                            btnNewButton.addActionListener(new ActionListener() {
-                            	public void actionPerformed(ActionEvent e) {
-                            		new Single();
-                            	}
-                            	
-                            });
-                            btnNewButton.setBounds(31, 132, 322, 28);
-                            getContentPane().add(btnNewButton);
                             
                             JLabel lblNewLabel1 = new JLabel("");
                         	lblNewLabel1.setHorizontalAlignment(SwingConstants.LEFT);

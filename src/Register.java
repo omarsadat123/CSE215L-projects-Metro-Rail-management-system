@@ -35,6 +35,16 @@ public class Register extends JFrame {
 	//File f = new File("D:\\restaurant");
 	Register(){
 		getContentPane().setBackground(new Color(255, 136, 255));
+		
+				
+				
+		
+				JLabel label3=new JLabel("Full Name                   :");
+				label3.setForeground(new Color(0, 0, 0));
+				label3.setHorizontalAlignment(SwingConstants.LEFT);
+				label3.setBounds(158, 96, 200, 45);
+				label3.setFont(new Font("Tahoma", Font.BOLD, 16));
+				getContentPane().add(label3);
 	
 		JLabel label1 = new JLabel("Username                   :");
 		label1.setForeground(new Color(0, 0, 0));
@@ -42,6 +52,15 @@ public class Register extends JFrame {
 		label1.setFont(new Font("Tahoma", Font.BOLD, 16));
 		label1.setBounds(158, 152, 200, 45);
 		getContentPane().add(label1);
+		
+
+		JTextField text3=new JTextField();
+		text3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		text3.setBackground(new Color(219, 214, 228));
+		text3.setBounds(392, 96, 227, 45);
+		text3.setForeground( new Color(255, 13, 13));
+		text3.setColumns(10);
+		getContentPane().add(text3);
 		
 
 		JTextField text1 = new JTextField();
@@ -71,25 +90,6 @@ public class Register extends JFrame {
 		label2.setHorizontalAlignment(SwingConstants.LEFT);
 		label2.setHorizontalTextPosition(JLabel.CENTER);
 		getContentPane().add(label2);
-
-		
-		
-
-		JLabel label3=new JLabel("Full Name                   :");
-		label3.setForeground(new Color(0, 0, 0));
-		label3.setHorizontalAlignment(SwingConstants.LEFT);
-		label3.setBounds(158, 96, 200, 45);
-		label3.setFont(new Font("Tahoma", Font.BOLD, 16));
-		getContentPane().add(label3);
-		
-
-		JTextField text3=new JTextField();
-		text3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		text3.setBackground(new Color(219, 214, 228));
-		text3.setBounds(392, 96, 227, 45);
-		text3.setForeground( new Color(255, 13, 13));
-		text3.setColumns(10);
-		getContentPane().add(text3);
 
 		
 		
@@ -205,7 +205,7 @@ public class Register extends JFrame {
 	    getContentPane().add(panel);
 	    panel.setLayout(null);
 	    
-	    JLabel lblNewLabel_1 = new JLabel("CREATE NEW ACCOUNT");
+	    JLabel lblNewLabel_1 = new JLabel("CREATE NEW ID");
 	    lblNewLabel_1.setBounds(155, 11, 237, 39);
 	    lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 19));
 	    lblNewLabel_1.setForeground(new Color(255, 255, 255));
