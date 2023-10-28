@@ -32,7 +32,7 @@ public class Register extends JFrame {
 	 int ln;
 	String Username,Password,Email;
 	private JTextField textField;
-	//File f = new File("D:\\restaurant");
+	
 	Register(){
 		getContentPane().setBackground(new Color(255, 136, 255));
 		

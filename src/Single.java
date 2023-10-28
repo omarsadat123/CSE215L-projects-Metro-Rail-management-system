@@ -5,6 +5,9 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Single {
     private JFrame frame;
@@ -12,10 +15,17 @@ public class Single {
     private JComboBox<String> destinationStationComboBox;
     private JCheckBox returnCheckBox;
     private JLabel resultLabel;
-    private JComboBox comboBox;
+    private String date;String ticket_Number;
+    private JPanel panel_2;
+    private  JDateChooser dateChooser;
+    private JLabel lblNewLabel_3,lblNewLabel_4,lblNewLabel_5,lblNewLabel_6;
+    private JLabel lblNewLabel_7,lblNewLabel_8,lblNewLabel_9,lblNewLabel_10,lblNewLabel_11;
+    private JLabel lblNewLabel_12,lblNewLabel_13,lblNewLabel_17;
+    private JComboBox comboBox, comboBox_1;
     private String[] stations = {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."};
     private double[][] prices = {{0.0, 5.0, 10.0,15,20,25,30,35,40}, {5.0, 0.0, 10.0,15,20,25,30,35,40}, {5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40}
                                 ,{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40}};
+    private JTextField textField;
 
     /**
      * @wbp.parser.entryPoint
@@ -35,6 +45,7 @@ public class Single {
         departureStationComboBox.setForeground(Color.BLUE);
         departureStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
         departureStationComboBox.setBounds(300, 331, 203, 42);
+        departureStationComboBox.setSelectedIndex(-1);
 
         JLabel destinationLabel = new JLabel("TO");
         destinationLabel.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -45,14 +56,15 @@ public class Single {
         destinationStationComboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
         destinationStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
         destinationStationComboBox.setBounds(300, 388, 203, 42);
+        destinationStationComboBox.setSelectedIndex(-1);
         
-        JLabel lblNewLabel_5 = new JLabel("DATE");
+         lblNewLabel_5 = new JLabel("DATE");
 	    lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 18));
 	    lblNewLabel_5.setHorizontalAlignment(SwingConstants.RIGHT);
 	    lblNewLabel_5.setBounds(110, 452, 93, 43);
 	    frame.getContentPane().add(lblNewLabel_5);
 	    
-	    JLabel lblNewLabel_6 = new JLabel("TIME");
+	    lblNewLabel_6 = new JLabel("TIME");
 	    lblNewLabel_6.setHorizontalAlignment(SwingConstants.RIGHT);
 	    lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 18));
 	    lblNewLabel_6.setBounds(110, 514, 93, 43);
@@ -83,9 +95,6 @@ public class Single {
         frame.getContentPane().add(destinationLabel);
         frame.getContentPane().add(destinationStationComboBox);
         frame.getContentPane().add(returnCheckBox);
-        JLabel label = new JLabel();
-        label.setBounds(629, 283, 109, 43);
-        frame.getContentPane().add(label); // Empty cell
         frame.getContentPane().add(calculateButton);
         JLabel lblFxdghfhfv = new JLabel();
         lblFxdghfhfv.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -94,10 +103,14 @@ public class Single {
         frame.getContentPane().add(lblFxdghfhfv); // Empty cell
         frame.getContentPane().add(resultLabel);
         
-        JDateChooser dateChooser = new JDateChooser();     
+         dateChooser = new JDateChooser();     
         dateChooser.setToolTipText("mm-dd-yy");
         dateChooser.setBounds(300, 445, 203, 41);
+        dateChooser.setDateFormatString("yyyy-MM-dd");
         frame.getContentPane().add(dateChooser);
+        
+       //  date = ((JTextField)dateChooser.getDateEditor().getUiComponent()).getText();
+       
         
          comboBox = new JComboBox();
         comboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -155,19 +168,81 @@ public class Single {
         lblNewLabel_2.setBounds(333, 61, 128, 24);
         frame.getContentPane().add(lblNewLabel_2);
         
-        JComboBox comboBox_1 = new JComboBox();
+        comboBox_1 = new JComboBox();
         comboBox_1.setBackground(new Color(248, 248, 255));
         comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
-        comboBox_1.setSelectedIndex(0);
+        comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"10", "2", "3", "4", "5"}));
+        comboBox_1.setSelectedIndex(-1);
+        
+      
+        
         comboBox_1.setBounds(346, 107, 103, 30);
         frame.getContentPane().add(comboBox_1);
         
         JPanel panel_1 = new JPanel();
         panel_1.setBackground(new Color(176, 196, 222));
-        panel_1.setBounds(10, 22, 581, 201);
+        panel_1.setBounds(10, 22, 530, 201);
+       
         frame.getContentPane().add(panel_1);
+       
+        
+        JButton btnNewButton = new JButton("Payment");
+        btnNewButton.setToolTipText("Payment");
+        btnNewButton.setBackground(new Color(128, 128, 0));
+        btnNewButton.setForeground(new Color(255, 255, 255));
+        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 21));
+        btnNewButton.setBounds(697, 491, 134, 43);
+        frame.getContentPane().add(btnNewButton);
+        
+        panel_2 = new JPanel();
+        panel_2.setBounds(557, 22, 459, 242);
+       
+        panel_2.setLayout(null);
+        panel_2.setVisible(false);
+        frame.getContentPane().add(panel_2);
 
+         
+         textField = new JTextField();
+         textField.setEditable(false);
+         textField.setBounds(294, 147, 103, 23);
+         panel_2.add(textField);
+         textField.setBackground(new Color(173, 216, 230));
+         textField.setColumns(10);
+         
+         
+         JLabel lblNewLabel_11 = new JLabel("Ticket Type");
+         lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 15));
+         lblNewLabel_11.setBounds(20, 25, 86, 29);
+         panel_2.add(lblNewLabel_11);
+         
+          lblNewLabel_12 = new JLabel("From");
+         lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 15));
+         lblNewLabel_12.setBounds(20, 75, 46, 25);
+         panel_2.add(lblNewLabel_12);
+         
+          lblNewLabel_13 = new JLabel("New label");
+          lblNewLabel_13.setForeground(new Color(0, 0, 205));
+         lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 15));
+         lblNewLabel_13.setBackground(new Color(255, 255, 255));
+         lblNewLabel_13.setBounds(20, 115, 181, 29);
+         panel_2.add(lblNewLabel_13);
+         
+         JLabel lblNewLabel_16 = new JLabel("To");
+         lblNewLabel_16.setFont(new Font("Tahoma", Font.PLAIN, 15));
+         lblNewLabel_16.setBounds(20, 155, 46, 25);
+         panel_2.add(lblNewLabel_16);
+         
+          lblNewLabel_17 = new JLabel("New label");
+          lblNewLabel_17.setForeground(new Color(0, 0, 255));
+         lblNewLabel_17.setFont(new Font("Tahoma", Font.PLAIN, 15));
+         lblNewLabel_17.setBounds(20, 185, 181, 29);
+         panel_2.add(lblNewLabel_17);
+         
+         JLabel lblNewLabel_18 = new JLabel("Date :");
+         lblNewLabel_18.setFont(new Font("Tahoma", Font.PLAIN, 15));
+         lblNewLabel_18.setBounds(238, 147, 46, 23);
+         panel_2.add(lblNewLabel_18);
+         
         frame.setVisible(true);
     }
 
@@ -192,6 +267,22 @@ public class Single {
 
             resultLabel.setText("Ticket price is: " + oneWayPrice + " TK" +
                     (isRoundTrip ? "(Round Trip Price: " + roundTripPrice + " TK)" : ""));
+            lblNewLabel_13.setText(departureStation);
+            //lblNewLabel_13.setText(x);
+            lblNewLabel_17.setText(destinationStation);
+            DateFormat ch=new SimpleDateFormat("yyyy-MM-dd");
+            textField.setText(ch.format(dateChooser.getDate()));
+            int x=JOptionPane.showConfirmDialog(null,"Are you sure you want to buy the Ticket ?"," Confirm",JOptionPane.YES_NO_OPTION);
+             ticket_Number=comboBox_1.getSelectedItem().toString();
+            System.out.println(ticket_Number);
+            if(x==0) {
+            	panel_2.setVisible(true);
+            	 
+            }
+            else {
+            	
+            }
+            
         }
     }
 

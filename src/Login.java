@@ -30,6 +30,7 @@ public class Login implements ActionListener {
 	String Username,Password;
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public  Login() {
 		initialize();
@@ -108,7 +109,7 @@ public class Login implements ActionListener {
 		 boolean x=CheckData(UserName_value, UserPass_value);
 		 		if(x) {
 		 			frame.setVisible(false);
-		 			//new BankManagementGUI();
+		 			new Single();
 		 		}
 		 		else {
 		 		new	Login();

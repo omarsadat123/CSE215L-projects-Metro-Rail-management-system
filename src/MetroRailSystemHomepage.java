@@ -5,15 +5,7 @@ import java.awt.event.ActionListener;
 
 public class MetroRailSystemHomepage extends JFrame {
 	public MetroRailSystemHomepage() {
-        // Create a JFrame
-       //frame.addlabel("Metro Rail Management System");
-       
-
-        // Create a JPanel
         
-       // Set panel background color
-
-        // Create buttons
         JButton viewScheduleButton = new JButton("View Schedule");
         viewScheduleButton.setBounds(31, 188, 322, 28);
         JButton bookTicketButton = new JButton("Emergency Help");
