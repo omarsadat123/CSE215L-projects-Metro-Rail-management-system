@@ -15,7 +15,7 @@ public class Single {
     private JComboBox<String> destinationStationComboBox;
     private JCheckBox returnCheckBox;
     private JLabel resultLabel;
-    private String date;String ticket_Number;
+    private String date;
     private JPanel panel_3;
     private  JDateChooser dateChooser;
     private JLabel lblNewLabel_3,lblNewLabel_4,lblNewLabel_5,lblNewLabel_6;
@@ -29,7 +29,9 @@ public class Single {
     private JLabel lblNewLabel_15;
     private JLabel lblNewLabel_19;
     private JLabel lblNewLabel_20;
-
+    
+    private int selectedIndex;
+    private int ticket_Number;
     /**
      * @wbp.parser.entryPoint
      */
@@ -43,10 +45,19 @@ public class Single {
         departureLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         departureLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         departureLabel.setBounds(110, 328, 93, 43);
-        departureStationComboBox = new JComboBox<>(stations);
+        departureStationComboBox = new JComboBox<>();
         departureStationComboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
         departureStationComboBox.setForeground(Color.BLUE);
-        departureStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
+        departureStationComboBox.addItem("Uttara North (Diyabari)");
+        departureStationComboBox.addItem("Uttara Centre");
+        departureStationComboBox.addItem("Uttara South");
+        departureStationComboBox.addItem("Pallabi");
+        departureStationComboBox.addItem("Mirpur-11");
+        departureStationComboBox.addItem("Mirpur-10");
+        departureStationComboBox.addItem("Kazipara");
+        departureStationComboBox.addItem("Shewrapara ");
+        departureStationComboBox.addItem("Agargaon.");
+        //departureStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
         departureStationComboBox.setBounds(300, 331, 203, 42);
         departureStationComboBox.setSelectedIndex(-1);
 
@@ -54,10 +65,19 @@ public class Single {
         destinationLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         destinationLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         destinationLabel.setBounds(110, 390, 93, 43);
-        destinationStationComboBox = new JComboBox<>(stations);
+        destinationStationComboBox = new JComboBox<>();
         destinationStationComboBox.setForeground(Color.BLUE);
         destinationStationComboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
-        destinationStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
+        //destinationStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
+        destinationStationComboBox.addItem("Uttara North (Diyabari)");
+        destinationStationComboBox.addItem("Uttara Centre");
+        destinationStationComboBox.addItem( " Uttara South");
+        destinationStationComboBox.addItem(" Pallabi");
+        destinationStationComboBox.addItem(" Mirpur-11");
+        destinationStationComboBox.addItem(" Mirpur-10");
+        destinationStationComboBox.addItem(" Kazipara");
+        destinationStationComboBox.addItem(" Shewrapara ");
+        destinationStationComboBox.addItem(" Agargaon.");
         destinationStationComboBox.setBounds(300, 388, 203, 42);
         destinationStationComboBox.setSelectedIndex(-1);
         
@@ -97,7 +117,7 @@ public class Single {
       
        
         
-         comboBox = new JComboBox();
+        comboBox = new JComboBox();
         comboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
         comboBox.setForeground(Color.BLUE);
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Time Select", "1-1.30", "1.30-2.30", "2.30-3.00", "3-3.30"}));
@@ -166,7 +186,12 @@ public class Single {
         panel_1.add(comboBox_1);
         comboBox_1.setBackground(new Color(248, 248, 255));
         comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+        //comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+        comboBox_1.addItem("1");
+        comboBox_1.addItem("2");
+        comboBox_1.addItem("3");
+        comboBox_1.addItem("4");
+        comboBox_1.addItem("5");
         comboBox_1.setSelectedIndex(-1);
         
         JLabel lblNewLabel_2 = new JLabel("Number Of Tickets");
@@ -269,17 +294,38 @@ public class Single {
         frame.setVisible(true);
     }
 
-    private class CalculateButtonListener implements ActionListener {
+//    public int getselectedIndex() {
+//    	 selectedIndex = comboBox.getSelectedIndex();
+//    	return selectedIndex;
+//    }
+    public int getticket_Number() {
+    	ticket_Number=comboBox_1.getSelectedIndex();
+   	return (ticket_Number);
+   }
+    public class CalculateButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	int selectedIndex = comboBox.getSelectedIndex();
-        	if (selectedIndex == -1) {
+        	int selectedIndex = comboBox_1.getSelectedIndex();
+        	int selectedIndex1=departureStationComboBox.getSelectedIndex();
+        	
+        	if (selectedIndex == -1 && selectedIndex1 == -1) {
         	    // Display an error message or take appropriate action
-        	    JOptionPane.showMessageDialog(null, "Please make a selection in the ComboBox.");
+        	    JOptionPane.showMessageDialog(frame, "Please make a selection in the ComboBox.");
         	}
-        	  ticket_Number=comboBox_1.getSelectedItem().toString();
-              System.out.println(ticket_Number);
-              int i=Integer.parseInt(ticket_Number); 
+            else {
+            	int x=JOptionPane.showConfirmDialog(null,"Are you sure you want to buy the Ticket ?"," Confirm",JOptionPane.YES_NO_OPTION);
+                
+                
+				if(x==0) {
+			    	panel_3.setVisible(true);
+			    	 
+			    }
+			    else {
+			    	
+			    }
+            }
+           
+              
         	
             String departureStation = (String) departureStationComboBox.getSelectedItem();
             String destinationStation = (String) destinationStationComboBox.getSelectedItem();
@@ -291,31 +337,25 @@ public class Single {
             double oneWayPrice = prices[departureIndex][destinationIndex];
             double roundTripPrice = isRoundTrip ? oneWayPrice * 2 : oneWayPrice;
 
-            resultLabel.setText("Ticket price is: " + oneWayPrice*i + " TK" +
-                    (isRoundTrip ? "(Round Trip Price: " + roundTripPrice*i + " TK)" : ""));
+            resultLabel.setText("Ticket price is: " + oneWayPrice*getticket_Number() + " TK" +
+                    (isRoundTrip ? "(Round Trip Price: " + roundTripPrice*getticket_Number() + " TK)" : ""));
             
             lblNewLabel_14.setText(isRoundTrip? "Round Trip": "Single");
-            lblNewLabel_20.setText(i+" Tickets ");
+            lblNewLabel_20.setText(getticket_Number()+" Tickets ");
             lblNewLabel_13.setText(departureStation);
            
             lblNewLabel_17.setText(destinationStation);
             Date selectedDate = dateChooser.getDate();
-            DateFormat ch=new SimpleDateFormat("yyyy-MM-dd");
+            DateFormat ch=new SimpleDateFormat("dd-MM-yyyy");
             textField.setText(ch.format(dateChooser.getDate()));
             
-            int x=JOptionPane.showConfirmDialog(null,"Are you sure you want to buy the Ticket ?"," Confirm",JOptionPane.YES_NO_OPTION);
             
-           
-            if(x==0) {
-            	panel_3.setVisible(true);
-            	 
-            }
-            else {
-            	
-            }
+            
+				}
+			
             
         }
-    }
+    
 
     private int getIndex(String station) {
         for (int i = 0; i < stations.length; i++) {

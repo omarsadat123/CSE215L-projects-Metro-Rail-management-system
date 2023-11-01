@@ -69,7 +69,7 @@ public class MetroRailSystemHomepage extends JFrame {
                      }
                  });
                  getContentPane().add(checkBalanceButton);
-       getContentPane().add(bookTicketButton);
+                 getContentPane().add(bookTicketButton);
                             this.setSize(804,645);
                             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                             this.getContentPane().setBackground(new Color(51, 153, 255)); // Set background color
