@@ -38,70 +38,16 @@ import javax.swing.JFormattedTextField;
 
 import javax.swing.JButton;
 
-public class Ticket_Manage extends JFrame {
-	private JTextField textField;
+public abstract class Ticket_Manage  {
+	
 	
     
 	      public Ticket_Manage(){
-	      	
-	    
-	    JLabel lblNewLabel = new JLabel("From");
-	    lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-	    lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-	    lblNewLabel.setBounds(110, 305, 59, 43);
-	    getContentPane().add(lblNewLabel);
-	    
-	    JLabel lblNewLabel_4 = new JLabel("TO");
-	    lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 18));
-	    lblNewLabel_4.setHorizontalAlignment(SwingConstants.RIGHT);
-	    lblNewLabel_4.setBounds(110, 360, 59, 43);
-	    getContentPane().add(lblNewLabel_4);
-	    
-	    textField = new JTextField();
-	    textField.setBounds(232, 319, 86, 20);
-	    getContentPane().add(textField);
-	    textField.setColumns(10);
-	  
-	    getContentPane().setBackground(new Color(47, 79, 79));
-      	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      	 this.setSize(1058,685);
-	    getContentPane().setLayout(null);  
-	    
-	    JComboBox comboBox = new JComboBox();
-	    comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
-	    comboBox.setBounds(238, 373, 98, 22);
-	    comboBox.setSelectedIndex(-1);
-	    getContentPane().add(comboBox);
-	    
-	    
-	    
-	    JButton btnNewButton = new JButton("New button");
-	    btnNewButton.addActionListener(new ActionListener() {
-	    	public void actionPerformed(ActionEvent e) {
-	    		String input = textField.getText();
-	    		Object value = comboBox.getSelectedItem();
-	    		Object someString = comboBox.getSelectedItem();// initialize someString or get it from somewhere
-	    		int selectedIndex = comboBox.getSelectedIndex();
-                if (selectedIndex==-1) {
-                    JOptionPane.showMessageDialog(null, "Text field cannot be empty!", "Validation Error", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "You entered: " + input, "Validation Success", JOptionPane.INFORMATION_MESSAGE);
-                }
-	    	}
 	    	
-	    });
-	    btnNewButton.setBounds(207, 464, 89, 23);
-	    getContentPane().add(btnNewButton);
+	    	 
+	      	}
 	    
-	    
-	    
-	   
-	    this.setVisible(true);
-	}
+	       abstract int getselectedIndex();
 	      
-	    
 
-	      public static void main(String[]args){
-	    	  Ticket_Manage v=new Ticket_Manage();
-	    	  }
 }

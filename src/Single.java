@@ -9,7 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Single {
+	public class Single extends Ticket_Manage {
     private JFrame frame;
     private JComboBox<String> departureStationComboBox;
     private JComboBox<String> destinationStationComboBox;
@@ -21,20 +21,19 @@ public class Single {
     private JLabel lblNewLabel_3,lblNewLabel_4,lblNewLabel_5,lblNewLabel_6;
     private JLabel lblNewLabel_7,lblNewLabel_8,lblNewLabel_9,lblNewLabel_10,lblNewLabel_11;
     private JLabel lblNewLabel_12,lblNewLabel_13,lblNewLabel_14,lblNewLabel_17;
-    private JComboBox comboBox, comboBox_1;
+    private JComboBox comboBox;
+	private  JComboBox comboBox_1;
     private String[] stations = {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."};
     private double[][] prices = {{0.0, 5.0, 10.0,15,20,25,30,35,40}, {5.0, 0.0, 10.0,15,20,25,30,35,40}, {5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40}
                                 ,{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40},{5.0, 5.0,0.0,15,20,25,30,35,40}};
     private JTextField textField;
     private JLabel lblNewLabel_15;
-    private JLabel lblNewLabel_19;
     private JLabel lblNewLabel_20;
     
     private int selectedIndex;
-    private int ticket_Number;
-    /**
-     * @wbp.parser.entryPoint
-     */
+    private  int ticket_Number;
+    private String ticket_item;
+   
     public Single() {
         frame = new JFrame("Metro Ticket Price Calculator");
         frame.getContentPane().setBackground(new Color(70, 130, 180));
@@ -45,7 +44,7 @@ public class Single {
         departureLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         departureLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         departureLabel.setBounds(110, 328, 93, 43);
-        departureStationComboBox = new JComboBox<>();
+        departureStationComboBox = new JComboBox<>(stations);
         departureStationComboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
         departureStationComboBox.setForeground(Color.BLUE);
         departureStationComboBox.addItem("Uttara North (Diyabari)");
@@ -65,7 +64,7 @@ public class Single {
         destinationLabel.setHorizontalAlignment(SwingConstants.RIGHT);
         destinationLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         destinationLabel.setBounds(110, 390, 93, 43);
-        destinationStationComboBox = new JComboBox<>();
+        destinationStationComboBox = new JComboBox<>(stations);
         destinationStationComboBox.setForeground(Color.BLUE);
         destinationStationComboBox.setFont(new Font("Tahoma", Font.BOLD, 11));
         //destinationStationComboBox.setModel(new DefaultComboBoxModel(new String[] {"Uttara North (Diyabari)", "Uttara Centre", " Uttara South", " Pallabi", " Mirpur-11", " Mirpur-10", " Kazipara", " Shewrapara ", " Agargaon."}));
@@ -204,12 +203,6 @@ public class Single {
         lblNewLabel_15.setFont(new Font("Tahoma", Font.BOLD, 14));
         lblNewLabel_15.setBounds(228, 50, 53, 24);
         panel_1.add(lblNewLabel_15);
-        
-        lblNewLabel_19 = new JLabel("Fill Up All The Option");
-        lblNewLabel_19.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_19.setFont(new Font("Tahoma", Font.BOLD, 17));
-        lblNewLabel_19.setBounds(148, 153, 193, 37);
-        panel_1.add(lblNewLabel_19);
        
         
         JButton btnNewButton = new JButton("Payment");
@@ -290,7 +283,7 @@ public class Single {
                  lblNewLabel_20.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 25));
                  lblNewLabel_20.setBounds(156, 40, 291, 57);
                  panel_3.add(lblNewLabel_20);
-         
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -302,17 +295,52 @@ public class Single {
     	ticket_Number=comboBox_1.getSelectedIndex();
    	return (ticket_Number);
    }
+    public String getTicket_Item() {
+    	ticket_item=(String) comboBox_1.getSelectedItem();
+   	return (ticket_item);
+   }
+    @Override
+	public int getselectedIndex() {
+		
+		return 0;
+	}
     public class CalculateButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	int selectedIndex = comboBox_1.getSelectedIndex();
-        	int selectedIndex1=departureStationComboBox.getSelectedIndex();
+        
+        	int selectedIndex=departureStationComboBox.getSelectedIndex();
+        	int selectedIndex1=destinationStationComboBox.getSelectedIndex();
+        	 Date selectedDate = dateChooser.getDate();
+           
+              
         	
-        	if (selectedIndex == -1 && selectedIndex1 == -1) {
+            
+            
+            if (getticket_Number() == -1 || selectedIndex == -1 || selectedDate == null || selectedIndex1 == -1) {
         	    // Display an error message or take appropriate action
-        	    JOptionPane.showMessageDialog(frame, "Please make a selection in the ComboBox.");
+        	    JOptionPane.showMessageDialog(frame, "Please Fill Up all the Options.");
         	}
             else {
+            	String departureStation = (String) departureStationComboBox.getSelectedItem();
+                String destinationStation = (String) destinationStationComboBox.getSelectedItem();
+                boolean isRoundTrip = returnCheckBox.isSelected();
+
+                int departureIndex = getIndex(departureStation);
+                int destinationIndex = getIndex(destinationStation);
+
+                double oneWayPrice = prices[departureIndex][destinationIndex];
+                double roundTripPrice = isRoundTrip ? oneWayPrice * 2 : oneWayPrice;
+
+                resultLabel.setText("Ticket price is: " + oneWayPrice*Integer.parseInt(getTicket_Item()) + " TK" +
+                        (isRoundTrip ? "(Round Trip Price: " + roundTripPrice*Integer.parseInt(getTicket_Item()) + " TK)" : ""));
+                
+                lblNewLabel_14.setText(isRoundTrip? "Round Trip": "Single");
+                lblNewLabel_20.setText(getTicket_Item()+" Tickets ");
+                lblNewLabel_13.setText(departureStation);
+                lblNewLabel_17.setText(destinationStation);
+               
+                DateFormat ch=new SimpleDateFormat("dd-MM-yyyy");
+                textField.setText(ch.format(dateChooser.getDate()));
             	int x=JOptionPane.showConfirmDialog(null,"Are you sure you want to buy the Ticket ?"," Confirm",JOptionPane.YES_NO_OPTION);
                 
                 
@@ -324,39 +352,13 @@ public class Single {
 			    	
 			    }
             }
-           
-              
-        	
-            String departureStation = (String) departureStationComboBox.getSelectedItem();
-            String destinationStation = (String) destinationStationComboBox.getSelectedItem();
-            boolean isRoundTrip = returnCheckBox.isSelected();
-
-            int departureIndex = getIndex(departureStation);
-            int destinationIndex = getIndex(destinationStation);
-
-            double oneWayPrice = prices[departureIndex][destinationIndex];
-            double roundTripPrice = isRoundTrip ? oneWayPrice * 2 : oneWayPrice;
-
-            resultLabel.setText("Ticket price is: " + oneWayPrice*getticket_Number() + " TK" +
-                    (isRoundTrip ? "(Round Trip Price: " + roundTripPrice*getticket_Number() + " TK)" : ""));
-            
-            lblNewLabel_14.setText(isRoundTrip? "Round Trip": "Single");
-            lblNewLabel_20.setText(getticket_Number()+" Tickets ");
-            lblNewLabel_13.setText(departureStation);
-           
-            lblNewLabel_17.setText(destinationStation);
-            Date selectedDate = dateChooser.getDate();
-            DateFormat ch=new SimpleDateFormat("dd-MM-yyyy");
-            textField.setText(ch.format(dateChooser.getDate()));
-            
-            
             
 				}
 			
             
         }
     
-
+  
     private int getIndex(String station) {
         for (int i = 0; i < stations.length; i++) {
             if (stations[i].equals(station)) {
@@ -366,10 +368,9 @@ public class Single {
         return -1;
     }
 
-    /**
-     * @wbp.parser.entryPoint
-     */
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Single());
-    }
+	
+
+	
+   
+    
 }

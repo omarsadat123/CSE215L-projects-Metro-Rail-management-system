@@ -159,9 +159,11 @@ public class Register extends JFrame {
 			addData(textUserName,textPass);
              text1.setText("");
              text2.setText("");
-             
+             JOptionPane.showMessageDialog(null, "Registration successfull");
              setVisible(false);
-             //new Login().frame.setVisible(true);
+             new Login().frame.setVisible(true);
+            
+             
            
 			}
 			
