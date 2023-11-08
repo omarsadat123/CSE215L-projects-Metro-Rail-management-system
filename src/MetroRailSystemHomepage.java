@@ -80,7 +80,7 @@ public class MetroRailSystemHomepage extends JFrame {
                             
                             JLabel lblNewLabel1 = new JLabel("");
                         	lblNewLabel1.setHorizontalAlignment(SwingConstants.LEFT);
-                        	lblNewLabel1.setIcon(new ImageIcon("C:\\projects\\CSE215L-projects-Metro-Rail-management-system\\r1.png"));
+                        	lblNewLabel1.setIcon(new ImageIcon("r1.png"));
                         	lblNewLabel1.setBounds(47, 289, 657, 295);
                         	lblNewLabel1.setFont(new Font("Tahoma", Font.ITALIC, 15));
                         	getContentPane().add(lblNewLabel1);

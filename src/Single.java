@@ -205,11 +205,7 @@ import java.util.Date;
         panel_1.add(lblNewLabel_15);
 
         
-        lblNewLabel_19 = new JLabel("Fill Up All The Option");
-        lblNewLabel_19.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_19.setFont(new Font("Tahoma", Font.BOLD, 17));
-        lblNewLabel_19.setBounds(148, 153, 193, 37);
-        panel_1.add(lblNewLabel_19);
+       
 
        
         
@@ -290,14 +286,14 @@ import java.util.Date;
                  lblNewLabel_20.setHorizontalAlignment(SwingConstants.CENTER);
                  lblNewLabel_20.setForeground(new Color(255, 0, 0));
                  lblNewLabel_20.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 25));
-                 lblNewLabel_20.setBounds(156, 40, 291, 57);
+                 lblNewLabel_20.setBounds(173, 63, 291, 57);
                  panel_3.add(lblNewLabel_20);
 
   //Payment Button er kaj shuru -->               
-                 JButton btnNewButton = new JButton("Payment");
-                 btnNewButton.setBounds(253, 215, 118, 43);
-                 panel_3.add(btnNewButton);
-                 btnNewButton.addActionListener(new ActionListener() {
+                 JButton btnNewButton1 = new JButton("Payment");
+                 btnNewButton1.setBounds(253, 215, 118, 43);
+                 panel_3.add(btnNewButton1);
+                 btnNewButton1.addActionListener(new ActionListener() {
                  	public void actionPerformed(ActionEvent e) {
                  		Payment sp = new Payment();
                  		String inputText1 = lblNewLabel_14.getText();
@@ -326,9 +322,9 @@ import java.util.Date;
           //payment butto n er kaj -- >     
                 	}
                  });
-                 btnNewButton.setForeground(new Color(0, 0, 0));
-                 btnNewButton.setBackground(new Color(255, 0, 128));
-                 btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+                 btnNewButton1.setForeground(new Color(0, 0, 0));
+                 btnNewButton1.setBackground(new Color(255, 0, 128));
+                 btnNewButton1.setFont(new Font("Tahoma", Font.BOLD, 17));
                  		
         frame.setLocationRelativeTo(null);
 
@@ -363,19 +359,7 @@ import java.util.Date;
               
         	
 
-            String departureStation = (String) departureStationComboBox.getSelectedItem();
-            String destinationStation = (String) destinationStationComboBox.getSelectedItem();
-            boolean isRoundTrip = returnCheckBox.isSelected();
-
-            int departureIndex = getIndex(departureStation);
-            int destinationIndex = getIndex(destinationStation);
-
-            double oneWayPrice = prices[departureIndex][destinationIndex];
-            double roundTripPrice = isRoundTrip ? oneWayPrice * 2 : oneWayPrice;
-            
-            resultLabel.setText( "Ticket price is: " + oneWayPrice*i + " TK" +
-                    (isRoundTrip ? "(Round Trip Price: " + roundTripPrice*i + " TK)" : ""));
-
+           
             
             
             if (getticket_Number() == -1 || selectedIndex == -1 || selectedDate == null || selectedIndex1 == -1) {
@@ -383,23 +367,23 @@ import java.util.Date;
         	    JOptionPane.showMessageDialog(frame, "Please Fill Up all the Options.");
         	}
             else {
-            	String departureStation = (String) departureStationComboBox.getSelectedItem();
-                String destinationStation = (String) destinationStationComboBox.getSelectedItem();
-                boolean isRoundTrip = returnCheckBox.isSelected();
+            	String departureStation1 = (String) departureStationComboBox.getSelectedItem();
+                String destinationStation1 = (String) destinationStationComboBox.getSelectedItem();
+                boolean isRoundTrip1 = returnCheckBox.isSelected();
 
-                int departureIndex = getIndex(departureStation);
-                int destinationIndex = getIndex(destinationStation);
+                int departureIndex1 = getIndex(departureStation1);
+                int destinationIndex1 = getIndex(destinationStation1);
 
-                double oneWayPrice = prices[departureIndex][destinationIndex];
-                double roundTripPrice = isRoundTrip ? oneWayPrice * 2 : oneWayPrice;
+                double oneWayPrice1 = prices[departureIndex1][destinationIndex1];
+                double roundTripPrice1 = isRoundTrip1 ? oneWayPrice1 * 2 : oneWayPrice1;
 
-                resultLabel.setText("Ticket price is: " + oneWayPrice*Integer.parseInt(getTicket_Item()) + " TK" +
-                        (isRoundTrip ? "(Round Trip Price: " + roundTripPrice*Integer.parseInt(getTicket_Item()) + " TK)" : ""));
+                resultLabel.setText("Ticket price is: " + oneWayPrice1*Integer.parseInt(getTicket_Item()) + " TK" +
+                        (isRoundTrip1 ? "(Round Trip Price: " + roundTripPrice1*Integer.parseInt(getTicket_Item()) + " TK)" : ""));
                 
-                lblNewLabel_14.setText(isRoundTrip? "Round Trip": "Single");
+                lblNewLabel_14.setText(isRoundTrip1? "Round Trip": "Single");
                 lblNewLabel_20.setText(getTicket_Item()+" Tickets ");
-                lblNewLabel_13.setText(departureStation);
-                lblNewLabel_17.setText(destinationStation);
+                lblNewLabel_13.setText(departureStation1);
+                lblNewLabel_17.setText(destinationStation1);
                
                 DateFormat ch=new SimpleDateFormat("dd-MM-yyyy");
                 textField.setText(ch.format(dateChooser.getDate()));

@@ -10,6 +10,7 @@ import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.JRadioButton;
 import javax.swing.border.BevelBorder;
 import javax.swing.JTextField;
@@ -268,7 +269,8 @@ public class Payment extends JFrame {
 		JButton btnNewButton_1 = new JButton("print ");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new AfterPayment();
+				
+				SwingUtilities.invokeLater(() -> new AfterPayment());
 			}
 		});
 		btnNewButton_1.setBackground(new Color(255, 0, 0));
