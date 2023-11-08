@@ -54,7 +54,7 @@ public class Login implements ActionListener {
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		
+	
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(188, 159, 196));
 		panel.setBounds(76, 54, 615, 490);

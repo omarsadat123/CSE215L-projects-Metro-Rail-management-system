@@ -185,15 +185,6 @@ public class Single {
         lblNewLabel_19.setFont(new Font("Tahoma", Font.BOLD, 17));
         lblNewLabel_19.setBounds(148, 153, 193, 37);
         panel_1.add(lblNewLabel_19);
-       
-        
-        JButton btnNewButton = new JButton("Payment");
-        btnNewButton.setToolTipText("Payment");
-        btnNewButton.setBackground(new Color(128, 128, 0));
-        btnNewButton.setForeground(new Color(255, 255, 255));
-        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 21));
-        btnNewButton.setBounds(697, 491, 134, 43);
-        frame.getContentPane().add(btnNewButton);
         
         panel_3 = new JPanel();
         panel_3.setBackground(new Color(72, 209, 204));
@@ -247,7 +238,7 @@ public class Single {
          panel_3.add(lblNewLabel_18);
          
                  resultLabel = new JLabel(" Price is 0.0 TK");
-                 resultLabel.setBounds(10, 225, 464, 30);
+                 resultLabel.setBounds(10, 225, 191, 30);
                  panel_3.add(resultLabel);
                  resultLabel.setVerticalAlignment(SwingConstants.TOP);
                  resultLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -265,7 +256,43 @@ public class Single {
                  lblNewLabel_20.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 25));
                  lblNewLabel_20.setBounds(156, 40, 291, 57);
                  panel_3.add(lblNewLabel_20);
-         
+  //Payment Button er kaj shuru -->               
+                 JButton btnNewButton = new JButton("Payment");
+                 btnNewButton.setBounds(253, 215, 118, 43);
+                 panel_3.add(btnNewButton);
+                 btnNewButton.addActionListener(new ActionListener() {
+                 	public void actionPerformed(ActionEvent e) {
+                 		Payment sp = new Payment();
+                 		String inputText1 = lblNewLabel_14.getText();
+                 		sp.TicketTypeLebel.setText(inputText1);
+                 		
+                 		String inputText2 = lblNewLabel_20.getText();
+                 		sp.QuantityLebel.setText(inputText2);
+                 		
+                 		String inputText3 = lblNewLabel_13.getText();
+                 		sp.FromLebel.setText(inputText3);
+                 		
+                 		String inputText4 = lblNewLabel_17.getText();
+                 		sp.ToLebel.setText(inputText4);
+                 		
+                 		String inputText5 = textField.getText();
+                 		sp.DateLebel.setText(inputText5);
+                 		
+//                 		String inputText6 = comboBox.getModel();
+//                 		sp.TimeLebel.setText(inputText6);
+//                 		
+                 		String inputText7 = resultLabel.getText();
+                 		sp.PriceLebel.setText(inputText7) ;                		
+                 		
+                 		sp.setVisible(true);
+                 		
+          //payment butto n er kaj -- >     
+                	}
+                 });
+                 btnNewButton.setForeground(new Color(0, 0, 0));
+                 btnNewButton.setBackground(new Color(255, 0, 128));
+                 btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+                 		
         frame.setVisible(true);
     }
 
@@ -290,8 +317,8 @@ public class Single {
 
             double oneWayPrice = prices[departureIndex][destinationIndex];
             double roundTripPrice = isRoundTrip ? oneWayPrice * 2 : oneWayPrice;
-
-            resultLabel.setText("Ticket price is: " + oneWayPrice*i + " TK" +
+            
+            resultLabel.setText( "Ticket price is: " + oneWayPrice*i + " TK" +
                     (isRoundTrip ? "(Round Trip Price: " + roundTripPrice*i + " TK)" : ""));
             
             lblNewLabel_14.setText(isRoundTrip? "Round Trip": "Single");

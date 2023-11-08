@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MetroRailSystemHomepage extends JFrame {
+	
 	public MetroRailSystemHomepage() {
         
         JButton viewScheduleButton = new JButton("View Schedule");
@@ -76,8 +77,8 @@ public class MetroRailSystemHomepage extends JFrame {
                             
                             JLabel lblNewLabel1 = new JLabel("");
                         	lblNewLabel1.setHorizontalAlignment(SwingConstants.LEFT);
-                        	lblNewLabel1.setIcon(new ImageIcon("D:\\CSE215-Project\\CSE215L-projects-Metro-Rail-management-system\\r1.png"));
-                        	lblNewLabel1.setBounds(47, 321, 641, 274);
+                        	lblNewLabel1.setIcon(new ImageIcon("C:\\projects\\CSE215L-projects-Metro-Rail-management-system\\r1.png"));
+                        	lblNewLabel1.setBounds(47, 289, 657, 295);
                         	lblNewLabel1.setFont(new Font("Tahoma", Font.ITALIC, 15));
                         	getContentPane().add(lblNewLabel1);
                             // Center the frame on the screen

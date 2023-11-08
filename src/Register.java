@@ -36,7 +36,7 @@ public class Register extends JFrame {
 	Register(){
 		getContentPane().setBackground(new Color(255, 136, 255));
 		
-				
+			
 				
 		
 				JLabel label3=new JLabel("Full Name                   :");
