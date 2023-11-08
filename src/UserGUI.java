@@ -65,7 +65,9 @@ public class UserGUI {
             }
         });
 
-        connectToAdmin(); // Connect to the admin server after initializing the GUI
+        connectToAdmin(); 
+        // Connect to the admin server after initializing the GUI
+        //hello boys
     }
 
     public void connectToAdmin() {
@@ -77,7 +79,7 @@ public class UserGUI {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String message;
 
-                while ((message = reader.readLine()) != null) {
+               while ((message = reader.readLine()) != null) {
                     messageTextArea.append("Admin's response: " + message + "\n");
                 }
             } catch (IOException e) {
