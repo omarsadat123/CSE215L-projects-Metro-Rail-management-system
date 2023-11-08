@@ -1,4 +1,10 @@
-Username: 
-Password: 
+Username: abc
+Password: 123
+< HEAD
 123
 456
+=======
+: 1
+
+
+>>>>>>> 3d597c2624b3b6fa1e6049705a18fcc72de38a2a

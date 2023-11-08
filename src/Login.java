@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 
 
 
-public class Login implements ActionListener {
+public class Login  implements ActionListener {
 
 	JFrame frame;
 	private JTextField txtUsername;
@@ -106,12 +106,14 @@ public class Login implements ActionListener {
 		 	public void actionPerformed(ActionEvent e) {
 		 		String UserName_value =txtUsername.getText();
 		 		String UserPass_value=textField_1_1.getText();
-		 boolean x=CheckData(UserName_value, UserPass_value);
+		 
+		 		boolean x=CheckData(UserName_value, UserPass_value);
 		 		if(x) {
 		 			frame.setVisible(false);
 		 			new Single();
 		 		}
 		 		else {
+		 			frame.dispose();
 		 		new	Login();
 		 		}
 		 		
@@ -164,13 +166,7 @@ public class Login implements ActionListener {
 		
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==btnNewButton_1) {
-			//new Register();
-		}
-		
-	}
+	
 	
 	 boolean CheckData(String UserName_value,String  UserPass_value){
 		    
@@ -191,12 +187,20 @@ public class Login implements ActionListener {
                 return false;
 	            }
 	        } catch (FileNotFoundException ex) {
-	           // Logger.getLogger(Register1.class.getName()).log(Level.SEVERE, null, ex);
+	           
 	        } catch (IOException ex) {
-	           // Logger.getLogger(Register1.class.getName()).log(Level.SEVERE, null, ex);
+	          
 	        }
 			return true;
 	            
 	    }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
 

@@ -8,11 +8,11 @@ public class MetroRailSystemHomepage extends JFrame {
 	public MetroRailSystemHomepage() {
         
         JButton viewScheduleButton = new JButton("View Schedule");
+        viewScheduleButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
         viewScheduleButton.setBounds(31, 188, 322, 28);
         JButton bookTicketButton = new JButton("Emergency Help");
+        bookTicketButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
         bookTicketButton.setBounds(382, 188, 322, 28);
-
-        // Set button colors
         viewScheduleButton.setBackground(new Color(255, 102, 102)); // Red
         bookTicketButton.setBackground(new Color(102, 255, 102)); // Green
 
@@ -28,17 +28,19 @@ public class MetroRailSystemHomepage extends JFrame {
         bookTicketButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Add code to open the ticket booking page
+                // Add code to open user
             	
-                JOptionPane.showMessageDialog(null, "Book Ticket button clicked.");
+            	SwingUtilities.invokeLater(() -> new UserGUI());
             }
         });
        getContentPane().setLayout(null);
         
         JButton btnNewButton = new JButton("Daily Ticket");
+        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		new Single();
+        	
         	}
         	
         });
@@ -56,7 +58,8 @@ public class MetroRailSystemHomepage extends JFrame {
        
         getContentPane().add(viewScheduleButton);
        
-         JButton checkBalanceButton = new JButton("Permanent Card");
+         JButton checkBalanceButton = new JButton("Permanent Ticket");
+         checkBalanceButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
          checkBalanceButton.setBounds(382, 132, 322, 28);
          checkBalanceButton.setBackground(new Color(255, 255, 102)); // Yellow
          
@@ -70,7 +73,7 @@ public class MetroRailSystemHomepage extends JFrame {
                      }
                  });
                  getContentPane().add(checkBalanceButton);
-       getContentPane().add(bookTicketButton);
+                 getContentPane().add(bookTicketButton);
                             this.setSize(804,645);
                             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                             this.getContentPane().setBackground(new Color(51, 153, 255)); // Set background color
