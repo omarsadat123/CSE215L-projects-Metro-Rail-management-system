@@ -71,7 +71,7 @@ public class UserGUI {
     }
 
     public void connectToAdmin() {
-      //  new Thread(() -> {
+        new Thread(() -> {
             try {
                 Socket socket = new Socket("127.0.0.1", 1234);
                 out = new PrintWriter(socket.getOutputStream(), true);
@@ -85,6 +85,6 @@ public class UserGUI {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-       // }).start();
+        }).start();
     }
 }

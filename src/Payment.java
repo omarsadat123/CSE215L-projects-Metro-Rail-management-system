@@ -270,7 +270,9 @@ public class Payment extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				SwingUtilities.invokeLater(() -> new AfterPayment());
+				AfterPayment frame = new AfterPayment();
+				frame.setVisible(true);
+				
 			}
 		});
 		btnNewButton_1.setBackground(new Color(255, 0, 0));
