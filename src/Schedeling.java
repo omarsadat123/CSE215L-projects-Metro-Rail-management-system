@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.SwingUtilities;
 import javax.swing.JLayeredPane;
 import javax.swing.JComboBox;
 	public class Schedeling {
@@ -31,23 +32,15 @@ import javax.swing.JComboBox;
 		private char Uttara;
 		private JTextField textField_1;
 
-	    public static void main(String[] args) {
-	        EventQueue.invokeLater(new Runnable() {
-	            public void run() {
-	                try {
-	                	Schedeling window = new Schedeling();
-	                    window.frame.setVisible(true);
-	                } catch (Exception e) {
-	                    e.printStackTrace();
-	                }
-	            }
-	        });
-	    }
+		 public static void main(String[] args) {
+		        SwingUtilities.invokeLater(() -> new Schedeling());
+		    }
 
 	    public Schedeling() {
 	        initialize();
 	    }
 
+	   
 	    private void initialize() {
 	    	
 	    	int buttonCount = 0;
@@ -168,7 +161,7 @@ import javax.swing.JComboBox;
 	        textField_1.setBounds(234, 91, 172, 33);
 	        panel.add(textField_1);
 	        textField_1.setColumns(10);
-
+	        frame.setVisible(true);
 	       
 	    }
 	}

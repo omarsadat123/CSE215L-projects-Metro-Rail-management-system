@@ -21,7 +21,8 @@ public class MetroRailSystemHomepage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Add code to open the schedule page
-                JOptionPane.showMessageDialog(null, "View Schedule button clicked.");
+            	SwingUtilities.invokeLater(() ->  new Schedeling());
+               // JOptionPane.showMessageDialog(null, "View Schedule button clicked.");
             }
         });
 
