@@ -24,19 +24,20 @@ public class UserGUI {
         messageField = new JTextField(20);
         messageField.setBounds(10, 15, 185, 53);
         JButton sendButton = new JButton("Send");
+        sendButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
         sendButton.setBounds(214, 19, 96, 45);
         JPanel inputPanel = new JPanel();
-        inputPanel.setBounds(83, 123, 320, 86);
+        inputPanel.setBounds(52, 115, 320, 86);
         inputPanel.setLayout(null);
         inputPanel.add(messageField);
         inputPanel.add(sendButton);
         userFrame.getContentPane().add(inputPanel);
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(435, 49, 442, 182);
+        scrollPane.setBounds(435, 49, 325, 185);
         userFrame.getContentPane().add(scrollPane);
         messageTextArea = new JTextArea();
-        messageTextArea.setEditable(false);
         scrollPane.setViewportView(messageTextArea);
+        messageTextArea.setEditable(false);
         
         JLabel lblNewLabel = new JLabel("Emergency Help");
         lblNewLabel.setBounds(101, 55, 202, 38);
@@ -47,11 +48,11 @@ public class UserGUI {
         JLabel lblNewLabel_1 = new JLabel("Admin Response");
         lblNewLabel_1.setForeground(new Color(128, 0, 128));
         lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 17));
-        lblNewLabel_1.setBounds(517, 11, 229, 27);
+        lblNewLabel_1.setBounds(476, 11, 229, 27);
         userFrame.getContentPane().add(lblNewLabel_1);
         lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 
-        userFrame.setSize(985, 425);
+        userFrame.setSize(798, 353);
         userFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         userFrame.setVisible(true);
 

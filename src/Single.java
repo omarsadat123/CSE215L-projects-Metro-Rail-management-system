@@ -16,7 +16,7 @@ import java.util.Date;
     private JCheckBox returnCheckBox;
     private JLabel resultLabel;
     private String date;
-    private JPanel panel_3;
+    private JPanel panel_3,panel;
     private  JDateChooser dateChooser;
     private JLabel lblNewLabel_3,lblNewLabel_4,lblNewLabel_5,lblNewLabel_6;
     private JLabel lblNewLabel_7,lblNewLabel_8,lblNewLabel_9,lblNewLabel_10,lblNewLabel_11;
@@ -205,19 +205,6 @@ import java.util.Date;
         panel_1.add(lblNewLabel_15);
 
         
-       
-
-       
-        
-        JButton btnNewButton = new JButton("Payment");
-        btnNewButton.setToolTipText("Payment");
-        btnNewButton.setBackground(new Color(128, 128, 0));
-        btnNewButton.setForeground(new Color(255, 255, 255));
-        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 21));
-        btnNewButton.setBounds(697, 491, 134, 43);
-        frame.getContentPane().add(btnNewButton);
-
-        
         panel_3 = new JPanel();
         panel_3.setBackground(new Color(72, 209, 204));
         panel_3.setBounds(557, 22, 474, 269);
@@ -270,7 +257,7 @@ import java.util.Date;
          panel_3.add(lblNewLabel_18);
          
                  resultLabel = new JLabel(" Price is 0.0 TK");
-                 resultLabel.setBounds(10, 225, 191, 30);
+                 resultLabel.setBounds(10, 225, 454, 30);
                  panel_3.add(resultLabel);
                  resultLabel.setVerticalAlignment(SwingConstants.TOP);
                  resultLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -288,43 +275,50 @@ import java.util.Date;
                  lblNewLabel_20.setFont(new Font("Trebuchet MS", Font.BOLD | Font.ITALIC, 25));
                  lblNewLabel_20.setBounds(173, 63, 291, 57);
                  panel_3.add(lblNewLabel_20);
-
-  //Payment Button er kaj shuru -->               
-                 JButton btnNewButton1 = new JButton("Payment");
-                 btnNewButton1.setBounds(253, 215, 118, 43);
-                 panel_3.add(btnNewButton1);
-                 btnNewButton1.addActionListener(new ActionListener() {
-                 	public void actionPerformed(ActionEvent e) {
-                 		Payment sp = new Payment();
-                 		String inputText1 = lblNewLabel_14.getText();
-                 		sp.TicketTypeLebel.setText(inputText1);
-                 		
-                 		String inputText2 = lblNewLabel_20.getText();
-                 		sp.QuantityLebel.setText(inputText2);
-                 		
-                 		String inputText3 = lblNewLabel_13.getText();
-                 		sp.FromLebel.setText(inputText3);
-                 		
-                 		String inputText4 = lblNewLabel_17.getText();
-                 		sp.ToLebel.setText(inputText4);
-                 		
-                 		String inputText5 = textField.getText();
-                 		sp.DateLebel.setText(inputText5);
-                 		
+                                  
+                                   panel = new JPanel();
+                                  panel.setBackground(new Color(233, 150, 122));
+                                  panel.setBounds(599, 351, 369, 167);
+                                  
+                                  panel.setLayout(null);
+                                  
+                                    //Payment Button er kaj shuru -->               
+                                                   JButton btnNewButton1 = new JButton("Payment");
+                                                   btnNewButton1.setBounds(120, 60, 118, 43);
+                                                   panel.add(btnNewButton1);
+                                                   btnNewButton1.addActionListener(new ActionListener() {
+                                                   	public void actionPerformed(ActionEvent e) {
+                                                   		Payment sp = new Payment();
+                                                   		String inputText1 = lblNewLabel_14.getText();
+                                                   		sp.TicketTypeLebel.setText(inputText1);
+                                                   		
+                                                   		String inputText2 = lblNewLabel_20.getText();
+                                                   		sp.QuantityLebel.setText(inputText2);
+                                                   		
+                                                   		String inputText3 = lblNewLabel_13.getText();
+                                                   		sp.FromLebel.setText(inputText3);
+                                                   		
+                                                   		String inputText4 = lblNewLabel_17.getText();
+                                                   		sp.ToLebel.setText(inputText4);
+                                                   		
+                                                   		String inputText5 = textField.getText();
+                                                   		sp.DateLebel.setText(inputText5);
+                                                   		
 //                 		String inputText6 = comboBox.getModel();
 //                 		sp.TimeLebel.setText(inputText6);
 //                 		
-                 		String inputText7 = resultLabel.getText();
-                 		sp.PriceLebel.setText(inputText7) ;                		
-                 		
-                 		sp.setVisible(true);
-                 		
+                                                   		String inputText7 = resultLabel.getText();
+                                                   		sp.PriceLebel.setText(inputText7) ;                		
+                                                   		
+                                                   		frame.setVisible(false);
+                                                   		sp.setVisible(true);
+                                                   		
           //payment butto n er kaj -- >     
                 	}
-                 });
-                 btnNewButton1.setForeground(new Color(0, 0, 0));
-                 btnNewButton1.setBackground(new Color(255, 0, 128));
-                 btnNewButton1.setFont(new Font("Tahoma", Font.BOLD, 17));
+                                                   });
+                                                   btnNewButton1.setForeground(new Color(0, 0, 0));
+                                                   btnNewButton1.setBackground(new Color(255, 0, 0));
+                                                   btnNewButton1.setFont(new Font("Tahoma", Font.BOLD, 17));
                  		
         frame.setLocationRelativeTo(null);
 
@@ -392,7 +386,7 @@ import java.util.Date;
                 
 				if(x==0) {
 			    	panel_3.setVisible(true);
-			    	 
+			    	frame.getContentPane().add(panel);
 			    }
 			    else {
 			    	
@@ -413,10 +407,4 @@ import java.util.Date;
         }
         return -1;
     }
-
-	
-
-	
-   
-    
 }

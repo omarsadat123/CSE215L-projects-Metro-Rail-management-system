@@ -48,7 +48,7 @@ import javax.swing.JComboBox;
 	        frame = new JFrame("Schedule Chart");
 	        frame.setBounds(100, 100, 716, 477);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+	        frame.setLocationRelativeTo(null);
 	        JPanel panel = new JPanel();
 	        panel.setToolTipText("Select your current station");
 	        frame.getContentPane().add(panel);

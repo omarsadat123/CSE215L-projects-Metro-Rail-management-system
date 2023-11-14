@@ -50,6 +50,7 @@ public class Payment extends JFrame {
 			public void run() {
 				try {
 					Payment frame = new Payment();
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

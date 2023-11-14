@@ -82,7 +82,7 @@ public class AfterPayment extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\projects\\CSE215L-projects-Metro-Rail-management-system\\r1.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("r1.png"));
 		lblNewLabel_2.setBounds(87, 247, 705, 227);
 		contentPane.add(lblNewLabel_2);
 	}
