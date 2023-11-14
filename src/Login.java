@@ -45,7 +45,7 @@ public class Login  implements ActionListener {
 	    }
 	
 	private void initialize() {
-		frame = new JFrame("\"BANK LOGIN SYSTEM\"");
+		frame = new JFrame("\"LOGIN SYSTEM\"");
 		frame.getContentPane().setBackground(new Color(0, 128, 255));
 		frame.setBounds(80, 300, 450, 301);
 		frame.setSize(794,635);

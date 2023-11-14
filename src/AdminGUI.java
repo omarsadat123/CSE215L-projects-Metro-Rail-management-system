@@ -24,10 +24,10 @@ public class AdminGUI {
     	
         JFrame adminFrame = new JFrame("Admin Help System");
         adminResponseField = new JTextField(20);
-        adminResponseField.setBounds(21, 9, 219, 57);
+        adminResponseField.setBounds(10, 9, 215, 57);
         JButton sendResponseButton = new JButton("Send");
         sendResponseButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
-        sendResponseButton.setBounds(274, 11, 123, 52);
+        sendResponseButton.setBounds(250, 8, 123, 52);
         adminFrame.getContentPane().setLayout(null);
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setBounds(29, 44, 328, 165);
@@ -36,13 +36,19 @@ public class AdminGUI {
         scrollPane.setViewportView(messageTextArea);
         messageTextArea.setEditable(false);
         JPanel responsePanel = new JPanel();
-        responsePanel.setBounds(372, 80, 426, 74);
+        responsePanel.setBounds(372, 80, 390, 74);
         responsePanel.setLayout(null);
         responsePanel.add(adminResponseField);
         responsePanel.add(sendResponseButton);
         adminFrame.getContentPane().add(responsePanel);
+        
+        JLabel lblNewLabel = new JLabel("User Response");
+        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+        lblNewLabel.setForeground(new Color(138, 43, 226));
+        lblNewLabel.setBounds(121, 11, 141, 22);
+        adminFrame.getContentPane().add(lblNewLabel);
 
-        adminFrame.setSize(831, 345);
+        adminFrame.setSize(782, 345);
         adminFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         adminFrame.setVisible(true);
     

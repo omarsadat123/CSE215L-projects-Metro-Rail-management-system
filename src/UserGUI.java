@@ -84,7 +84,7 @@ public class UserGUI {
                     messageTextArea.append("Admin's response: " + message + "\n");
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Connection reset");
             }
         }).start();
     }
